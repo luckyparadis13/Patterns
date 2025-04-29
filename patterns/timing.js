@@ -19,8 +19,20 @@ export function isSongInPlaylist(playlist, song) {
  * @returns `undefined` if `numbers` is empty
  */
 export function isAllEven(numbers) {
-  // TODO
+  if (numbers.length === 0) {
+    return undefined;
+  }
+
+  for (let num of numbers) {
+    if (num % 2 !== 0) {
+      return false; // return early if any number is odd
+    }
+  }
+
+  return true; // if no odd numbers found, all are even
 }
+
+// TODO
 
 /**
  * You're in charge of a group camping trip. You've packed supplies in a backpack,

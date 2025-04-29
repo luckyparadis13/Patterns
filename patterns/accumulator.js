@@ -22,7 +22,17 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  if (typeof n !== "number") {
+    return NaN;
+  }
+  if (n < 0) {
+    return undefined;
+  }
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
 }
 
 /**
@@ -32,7 +42,17 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  if (typeof n !== "number") {
+    return null;
+  }
+  if (n <= 0) {
+    return [];
+  }
+  let result = [];
+  for (let i = 1; i <= n; i++) {
+    result.push(i);
+  }
+  return result;
 }
 
 /**
@@ -40,27 +60,63 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+  let longest = "";
+
+  for (let str of strings) {
+    if (str.length > longest.length) {
+      longest = str;
+    }
+  }
+
+  return longest;
 }
+
+// TODO
 
 /**
  * @param {boolean[]} attendance - `true` means a student is present, `false` means a student is absent
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  let count = 0;
+
+  for (const student of attendance) {
+    if (student) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
+// TODO
+
 /**
- * In DNA strings, the symbols `A` and `T` are complements of each other,
- * and the symbols `C` and `G` are complements of each other.
- * A complementary strand is a string formed by the complement
- * of each nucleobase in the original string.
- *
- * @param {string} dna - a string of the symbols `A`, `T`, `C`, or `G`
+ * @param {string} dna
  * @returns {string} the complementary DNA strand
  * @returns `null` if `dna` is not a string
  */
+
+// TODO
 export function complementDNA(dna) {
-  // TODO
+  if (typeof dna !== "string") {
+    return null;
+  }
+
+  let result = "";
+
+  for (let i = 0; i < dna.length; i++) {
+    const letter = dna[i];
+    if (letter === "A") {
+      result += "T";
+    } else if (letter === "T") {
+      result += "A";
+    } else if (letter === "C") {
+      result += "G";
+    } else if (letter === "G") {
+      result += "C";
+    }
+  }
+
+  return result;
 }

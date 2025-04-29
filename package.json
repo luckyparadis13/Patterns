@@ -4,6 +4,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "jest": "^29.7.0",
     "vitest": "^3.0.4"
   }
 }
