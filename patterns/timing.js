@@ -5,6 +5,10 @@
  * @returns `false` if `playlist` is empty
  */
 export function isSongInPlaylist(playlist, song) {
+  if (playlist.length === 0) {
+    return false;
+  }
+
   for (const songInPlaylist of playlist) {
     if (songInPlaylist === song) {
       return true;
@@ -25,24 +29,28 @@ export function isAllEven(numbers) {
 
   for (let num of numbers) {
     if (num % 2 !== 0) {
-      return false; // return early if any number is odd
+      return false;
     }
   }
-
-  return true; // if no odd numbers found, all are even
+  return true;
 }
 
-// TODO
-
 /**
- * You're in charge of a group camping trip. You've packed supplies in a backpack,
- * and each item in the backpack has a category, such as "food", "equipment", or "clothes".
- * Each item in the "food" category is enough to feed one person.
- *
- * @param {{category: string}[]}} backpack
+ * @param {{category: string}[]} backpack
  * @param {number} people
  * @returns {boolean} whether there is enough food in the backpack to feed everyone
  */
 export function haveEnoughFood(backpack, people) {
-  // TODO
+  if (!Array.isArray(backpack) || typeof people !== "number") {
+    return false;
+  }
+
+  if (people === 0) {
+    return true;
+  }
+
+  // Count how many items in backpack have category === "food"
+  const foodCount = backpack.filter((item) => item.category === "food").length;
+
+  return foodCount >= people;
 }
